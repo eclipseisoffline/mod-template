@@ -7,4 +7,8 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
+
+    includeBuild("convention-plugins")
 }
+
+rootProject.name = "mod-template"
