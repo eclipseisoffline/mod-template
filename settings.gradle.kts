@@ -16,4 +16,4 @@ pluginManagement {
 
 rootProject.name = "mod-template"
 
-include("common")
+include("common", "fabric")

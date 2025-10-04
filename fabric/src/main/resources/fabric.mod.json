@@ -14,26 +14,19 @@
   ],
   "contact": {
     "homepage": "https://modrinth.com/mod/${modrinth_id}",
-    "issues": "https://github.com/eclipseisoffline/${github_repository}/issues",
-    "sources": "https://github.com/eclipseisoffline/${github_repository}"
+    "issues": "https://github.com/${github_repository}/issues",
+    "sources": "https://github.com/${github_repository}"
   },
   "license": "MIT",
   "icon": "assets/${mod_id}/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "xyz.eclipseisoffline.modtemplate.client.ModTemplateClient"
-    ],
     "main": [
       "xyz.eclipseisoffline.modtemplate.ModTemplate"
     ]
   },
   "mixins": [
-    "mod-template.mixins.json",
-    {
-      "config": "mod-template.client.mixins.json",
-      "environment": "client"
-    }
+    "mod-template.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
