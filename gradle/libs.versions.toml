@@ -1,6 +1,5 @@
 [versions]
-fabric-loom = "1.11-SNAPSHOT"
-mod-publish-plugin = "0.8.4"
+multimod = "0.0.1-SNAPSHOT"
 
 minecraft = "1.21.9"
 minecraft-supported = "1.21.9"
@@ -15,6 +14,4 @@ fabric-loader = {group = "net.fabricmc", name = "fabric-loader", version.ref = "
 fabric-api = {group = "net.fabricmc.fabric-api", name = "fabric-api", version.ref = "fabric-api"}
 
 [plugins]
-fabric-loom = {id = "fabric-loom", version.ref = "fabric-loom"}
-mod-publish-plugin = {id = "me.modmuss50.mod-publish-plugin", version.ref = "mod-publish-plugin"}
-maven-publish = {id = "maven-publish"}
+multimod = {id = "xyz.eclipseisoffline.multimod", version.ref = "multimod"}

@@ -1,10 +1,11 @@
 import me.modmuss50.mpp.ReleaseType
 
 plugins {
-    id("xyz.eclipseisoffline.multimod.modding-fabric-conventions")
+    alias(libs.plugins.multimod)
 }
 
 group = properties["maven_group"] as String
+version = properties["version"] as String
 
 mod {
     id = properties["mod_id"] as String
@@ -14,6 +15,7 @@ mod {
     archivesBaseName = properties["archives_base_name"] as String
 
     minecraft = libs.minecraft
+    neoFormTimestamp = "20250930.151910" // TODO
     // TODO parchment, maven repositories
     fabricLoader = libs.fabric.loader
     fabricApi = libs.fabric.api
@@ -25,6 +27,4 @@ mod {
     releaseVersions = libs.versions.minecraft.release
     githubRepository = properties["github_repository"] as String
     gitBranch = properties["git_branch"] as String
-
-    finishConfiguring()
 }
