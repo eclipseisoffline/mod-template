@@ -17,7 +17,10 @@ mod {
     minecraft = libs.minecraft
     neoFormTimestamp = "20250930.151910" // TODO
     // TODO parchment, maven repositories
+
     fabricApi = libs.fabric.api
+
+    neoForgeVersion = libs.versions.neoforge
 
     supportedMinecraftVersions = libs.versions.minecraft.supported
 

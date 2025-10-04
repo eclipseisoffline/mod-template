@@ -1,0 +1,28 @@
+license="MIT" # TODO in build file
+issueTrackerURL="https://github.com/${github_repository}/issues"
+
+[[mods]]
+modId="${mod_id}"
+version="${version}"
+displayName="${mod_name}"
+displayURL="https://modrinth.com/mod/${modrinth_id}"
+logoFile="assets/${mod_id}/icon.png"
+authors="eclipseisoffline" # TODO in build file
+description='''${mod_description}'''
+
+[[mixins]]
+config="mod-template.mixins.json"
+
+[[dependencies]]
+    modId="neoforge"
+    type="required"
+    versionRange="${neoforge_version}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies]]
+    modId="minecraft"
+    type="required"
+    versionRange="${neoforge_minecraft_version}"
+    ordering="NONE"
+    side="BOTH"
