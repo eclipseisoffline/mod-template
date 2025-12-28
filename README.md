@@ -13,6 +13,7 @@ Before starting with coding your mod, you should update the following things:
 - The LICENSE file and the licenses in `fabric.mod.json` and `neoforge.mods.toml` (unless you want your mod licensed under CC0).
 - The name of the root project in `settings.gradle.kts`.
 - The constants in `gradle.properties`.
+- The maven repository published to in `build.gradle.kts`.
 - The versions in `libs.versions.toml` (if coding for a different version of Minecraft).
 - The code in the project's modules. Specifically:
   - Move your project's code into a different package.

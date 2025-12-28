@@ -43,4 +43,10 @@ multimod {
         repository = properties["github_repository"] as String
         commitish = properties["git_branch"] as String
     }
+
+    publishToMaven {
+        name = "eclipseisoffline"
+        url = uri("https://maven.eclipseisoffline.xyz/releases")
+        credentials(PasswordCredentials::class)
+    }
 }
