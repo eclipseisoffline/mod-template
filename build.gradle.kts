@@ -1,4 +1,3 @@
-import me.modmuss50.mpp.ModPublishExtension
 import me.modmuss50.mpp.ReleaseType
 
 plugins {
@@ -40,5 +39,3 @@ multimod {
         commitish = properties["git_branch"] as String
     }
 }
-
-extensions.getByType<ModPublishExtension>().dryRun = true
