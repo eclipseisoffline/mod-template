@@ -1,3 +1,4 @@
+import me.modmuss50.mpp.ModPublishExtension
 import me.modmuss50.mpp.ReleaseType
 
 plugins {
@@ -7,26 +8,37 @@ plugins {
 group = properties["maven_group"] as String
 version = properties["version"] as String
 
-mod {
+multimod {
     id = properties["mod_id"] as String
     name = properties["mod_name"] as String
     description = properties["mod_description"] as String
 
     archivesBaseName = properties["archives_base_name"] as String
 
-    minecraft = libs.minecraft
-    neoFormTimestamp = "20250930.151910" // TODO
-    // TODO parchment, maven repositories
+    minecraft {
+        minecraft = libs.minecraft
+        supported(libs.versions.minecraft.release)
+    }
 
     fabricApi = libs.fabric.api
-
     neoForgeVersion = libs.versions.neoforge
 
-    supportedMinecraftVersions = libs.versions.minecraft.supported
+    modPublishOptions {
+        changelog = file("CHANGELOG.md").readText()
+        type = ReleaseType.of(properties["release_type"] as String)
+    }
 
-    modrinthId = properties["modrinth_project_id"] as String
-    releaseType = ReleaseType.of(properties["release_type"] as String)
-    releaseVersions = libs.versions.minecraft.release
-    githubRepository = properties["github_repository"] as String
-    gitBranch = properties["git_branch"] as String
+    modrinthOptions {
+        accessToken = providers.gradleProperty("MODRINTH_API_TOKEN")
+        projectId = properties["modrinth_project_id"] as String
+        minecraftVersions.addAll(libs.versions.minecraft.release.get().split(","))
+    }
+
+    githubOptions {
+        accessToken = providers.gradleProperty("GITHUB_API_PUBLISH_TOKEN")
+        repository = properties["github_repository"] as String
+        commitish = properties["git_branch"] as String
+    }
 }
+
+extensions.getByType<ModPublishExtension>().dryRun = true

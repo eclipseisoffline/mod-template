@@ -2,4 +2,4 @@ plugins {
     alias(libs.plugins.multimod)
 }
 
-mod.neoForge(project(":common"))
+multimod.neoForge(project(":common"))

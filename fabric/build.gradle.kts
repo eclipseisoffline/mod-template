@@ -2,4 +2,4 @@ plugins {
     alias(libs.plugins.multimod)
 }
 
-mod.fabric(project(":common"))
+multimod.fabric(project(":common"))

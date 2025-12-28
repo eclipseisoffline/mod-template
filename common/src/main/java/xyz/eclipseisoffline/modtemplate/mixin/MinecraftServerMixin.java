@@ -18,7 +18,15 @@ import java.net.Proxy;
 public class MinecraftServerMixin {
 
     @Inject(method = "<init>", at = @At("TAIL"))
-    public void debug(Thread p_236723_, LevelStorageSource.LevelStorageAccess p_236724_, PackRepository p_236725_, WorldStem p_236726_, Proxy p_236727_, DataFixer p_236728_, Services p_236729_, LevelLoadListener p_434956_, CallbackInfo ci) {
+    public void debug(Thread serverThread,
+                      LevelStorageSource.LevelStorageAccess storageSource,
+                      PackRepository packRepository,
+                      WorldStem worldStem,
+                      Proxy proxy,
+                      DataFixer fixerUpper,
+                      Services services,
+                      LevelLoadListener levelLoadListener,
+                      CallbackInfo callbackInfo) {
         System.out.println("server init");
     }
 }

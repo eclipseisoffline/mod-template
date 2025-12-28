@@ -14,6 +14,6 @@ pluginManagement {
     }
 }
 
-rootProject.name = "mod-template"
+rootProject.name = "ModTemplate"
 
 include("common", "fabric", "neoforge")
