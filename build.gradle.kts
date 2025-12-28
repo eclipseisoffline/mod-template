@@ -31,6 +31,11 @@ multimod {
         accessToken = providers.gradleProperty("MODRINTH_API_TOKEN")
         projectId = properties["modrinth_project_id"] as String
         minecraftVersions.addAll(libs.versions.minecraft.release.get().split(","))
+
+        // Fabric API
+        requires {
+            slug = "P7dR8mSH"
+        }
     }
 
     githubOptions {
