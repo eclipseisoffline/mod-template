@@ -22,31 +22,30 @@ multimod {
     fabricApi = libs.fabric.api
     neoForgeVersion = libs.versions.neoforge
 
-    modPublishOptions {
-        changelog = file("CHANGELOG.md").readText()
-        type = ReleaseType.of(properties["release_type"] as String)
-    }
+    modPublishing {
+        base {
+            changelog = file("CHANGELOG.md").readText()
+            type = ReleaseType.of(properties["release_type"] as String)
+        }
 
-    modrinthOptions {
-        accessToken = providers.gradleProperty("MODRINTH_API_TOKEN")
-        projectId = properties["modrinth_project_id"] as String
-        minecraftVersions.addAll(libs.versions.minecraft.release.get().split(","))
+        modrinth {
+            accessToken = providers.gradleProperty("MODRINTH_API_TOKEN")
+            projectId = properties["modrinth_project_id"] as String
+            minecraftVersions.addAll(libs.versions.minecraft.release.get().split(","))
+        }
 
-        // Fabric API
-        requires {
-            slug = "P7dR8mSH"
+        github {
+            accessToken = providers.gradleProperty("GITHUB_API_PUBLISH_TOKEN")
+            repository = properties["github_repository"] as String
+            commitish = properties["git_branch"] as String
         }
     }
 
-    githubOptions {
-        accessToken = providers.gradleProperty("GITHUB_API_PUBLISH_TOKEN")
-        repository = properties["github_repository"] as String
-        commitish = properties["git_branch"] as String
-    }
-
-    publishToMaven {
-        name = "eclipseisoffline"
-        url = uri("https://maven.eclipseisoffline.xyz/releases")
-        credentials(PasswordCredentials::class)
+    publishing {
+        maven {
+            name = "eclipseisoffline"
+            url = uri("https://maven.eclipseisoffline.xyz/releases")
+            credentials(PasswordCredentials::class)
+        }
     }
 }
