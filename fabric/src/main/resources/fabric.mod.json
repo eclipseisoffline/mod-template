@@ -22,7 +22,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "xyz.eclipseisoffline.modtemplate.ModTemplate"
+      "xyz.eclipseisoffline.modtemplate.fabric.ModTemplateFabric"
     ]
   },
   "mixins": [

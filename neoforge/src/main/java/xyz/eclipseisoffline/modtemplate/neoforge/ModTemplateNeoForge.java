@@ -1,4 +1,4 @@
-package xyz.eclipseisoffline.modtemplate;
+package xyz.eclipseisoffline.modtemplate.neoforge;
 
 import net.neoforged.fml.common.Mod;
 
