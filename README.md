@@ -5,6 +5,8 @@ It can be used to create mods for both the Fabric and NeoForge modloaders.
 
 The repository is licensed under CC0.
 
+This branch contains a template directed at library mods, which don't need things like publishing.
+
 ## Usage
 
 Before starting with coding your mod, you should update the following things:

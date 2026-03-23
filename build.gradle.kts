@@ -1,5 +1,3 @@
-import me.modmuss50.mpp.ReleaseType
-
 plugins {
     alias(libs.plugins.multimod)
 }
@@ -16,30 +14,12 @@ multimod {
 
     minecraft {
         minecraft = libs.minecraft
-        supported(libs.versions.minecraft.release)
+        supportedMinecraftVersions = ">=26.1 ~26.1-"
+        neoForgeSupportedMinecraftVersions = "26.1"
     }
 
     fabricApi = libs.fabric.api
     neoForgeVersion = libs.versions.neoforge
-
-    modPublishing {
-        base {
-            changelog = file("CHANGELOG.md").readText()
-            type = ReleaseType.of(properties["release_type"] as String)
-        }
-
-        modrinth {
-            accessToken = providers.gradleProperty("MODRINTH_API_TOKEN")
-            projectId = properties["modrinth_project_id"] as String
-            minecraftVersions.addAll(libs.versions.minecraft.release.get().split(","))
-        }
-
-        github {
-            accessToken = providers.gradleProperty("GITHUB_API_PUBLISH_TOKEN")
-            repository = properties["github_repository"] as String
-            commitish = properties["git_branch"] as String
-        }
-    }
 
     publishing {
         maven {
