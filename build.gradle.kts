@@ -2,21 +2,23 @@ plugins {
     alias(libs.plugins.multimod)
 }
 
-group = properties["maven_group"] as String
-version = properties["version"] as String
+group = providers.gradleProperty("maven_group").get()
+version = providers.gradleProperty("version").get()
 
 multimod {
-    id = properties["mod_id"] as String
-    name = properties["mod_name"] as String
-    description = properties["mod_description"] as String
+    id = providers.gradleProperty("mod_id")
+    name = providers.gradleProperty("mod_name")
+    description = providers.gradleProperty("mod_description")
 
-    archivesBaseName = properties["archives_base_name"] as String
+    archivesBaseName = providers.gradleProperty("archives_base_name")
 
     minecraft {
         minecraft = libs.minecraft
-        supportedMinecraftVersions = ">=26.1 ~26.1-"
-        neoForgeSupportedMinecraftVersions = "26.1"
+        supportedMinecraftVersions = ">=26.3 ~26.3-"
+        neoForgeSupportedMinecraftVersions = "26.3"
     }
+
+    resourceConfiguration.defaults()
 
     fabricApi = libs.fabric.api
     neoForgeVersion = libs.versions.neoforge

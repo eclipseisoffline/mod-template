@@ -5,6 +5,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.Services;
 import net.minecraft.server.WorldStem;
 import net.minecraft.server.level.progress.LevelLoadListener;
+import net.minecraft.server.notifications.NotificationManager;
 import net.minecraft.server.packs.repository.PackRepository;
 import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.storage.LevelStorageSource;
@@ -20,9 +21,10 @@ import java.util.Optional;
 public class MinecraftServerMixin {
 
     @Inject(method = "<init>", at = @At("TAIL"))
-    public void debug(Thread serverThread, LevelStorageSource.LevelStorageAccess storageSource, PackRepository packRepository, WorldStem worldStem,
-                      Optional<GameRules> gameRules, Proxy proxy, DataFixer fixerUpper, Services services,
-                      LevelLoadListener levelLoadListener, boolean propagatesCrashes, CallbackInfo callbackInfo) {
+    public void debug(Thread serverThread, LevelStorageSource.LevelStorageAccess storageSource, PackRepository packRepository,
+                      WorldStem worldStem, Optional<GameRules> gameRules, Proxy proxy, DataFixer fixerUpper, Services services,
+                      LevelLoadListener levelLoadListener, boolean propagatesCrashes,
+                      NotificationManager notificationManager, CallbackInfo ci) {
         System.out.println("server init");
     }
 }
